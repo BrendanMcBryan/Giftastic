@@ -1,0 +1,85 @@
+body {
+  background: url(../images/simsponsbg.jpg) no-repeat center center fixed;
+  font-family: "Rock Salt", cursive;
+}
+hr {
+    border-top: rgb(247, 230, 0) dashed 2px;
+    border-bottom: none;
+    
+    box-shadow: 2px;
+    
+}
+section {
+  padding: 10px;
+  margin: auto;
+  max-width: 80%;
+  background-color: rgba(255, 255, 255, 0.4);
+  height: auto;
+}
+button {
+  font-family: "Rock Salt", cursive;
+  padding: 0.25rem;
+  margin: 0.2rem;
+  background-image: linear-gradient(
+    to top right,
+    rgba(231, 241, 174, 0.733),
+    yellow
+  );
+  color: black;
+  letter-spacing: 0.1rem;
+}
+.savebtn{
+    padding: .1REM;
+    font-size: .6rem;
+    margin: 3px;
+}
+
+
+#forms {
+  /* width: 50%; */
+}
+#gifs{
+    text-align: center;
+    align-content: center;
+    overflow: auto;
+    padding: auto;
+}
+.still {
+    /* display: none; */
+}
+.gifholder {
+    /* text-align: center; */
+    /* align-content: center; */
+    float: left;
+    margin: .2rem;
+    /* max-width: 30%; */
+    height: 220px;
+}
+.toonrating {
+    padding-top: 9px;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  font-family: "Rock Salt", cursive;
+  background-color: rgba(255, 255, 255, 0.466);
+  /* filter: blur(5px); */
+}   
+
+input[type="submit"] {
+    /* width: %; */
+    padding: 6px 24px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    font-family: "Rock Salt", cursive;
+    background-image: linear-gradient(
+        to top right,
+        rgba(231, 241, 174, 0.733),
+        yellow
+      );
+    /* filter: blur(5px); */
+  } 
+
