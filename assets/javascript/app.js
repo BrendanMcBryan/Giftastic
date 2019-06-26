@@ -2,6 +2,7 @@
 var myapi = "osqolqn0f8aj0zXwqVkW3mrMhLnwcwGE";
 var limit = 10;
 var toonbuttons = ["Homer Simpson", "Futurama"];
+var favs = {};
 
 function RenderGifs() {
   var toon = $(this).attr("data-name");
@@ -89,6 +90,10 @@ $("#add-toon").on("click", function(event) {
     MakeButtons();
   }
 });
+
+function addtoFavorites(){
+
+}
 
 MakeButtons();
 
