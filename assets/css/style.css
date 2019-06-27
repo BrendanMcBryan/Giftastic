@@ -51,7 +51,7 @@ button {
   float: left;
   margin: 0.2rem;
   /* max-width: 30%; */
-  height: 300px;
+  height: 250px;
   overflow: auto;
 }
 .toonrating {

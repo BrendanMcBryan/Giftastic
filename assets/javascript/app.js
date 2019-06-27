@@ -1,11 +1,20 @@
 // console.log("Connected");
 var myapi = "osqolqn0f8aj0zXwqVkW3mrMhLnwcwGE";
 var limit = 10;
-var toonbuttons = ["Homer Simpson", "Futurama"];
+var toonbuttons = [
+  "Cowboy Bebop",
+  "Homer Simpson",
+  "The Flintstones",
+  "Carebears",
+  "Animaniacs"
+];
 var favs = {};
 
 function RenderGifs() {
   var toon = $(this).attr("data-name");
+  // this line below helps to make an error free API
+  toon = toon.toUpperCase();
+
   var queryURL =
     "https://api.giphy.com/v1/gifs/search?api_key=" +
     myapi +
@@ -14,22 +23,22 @@ function RenderGifs() {
     "&limit=" +
     limit +
     "lang=en";
-  console.log(queryURL);
+  // console.log("😀", queryURL);
   $.ajax({
     url: queryURL,
     method: "GET"
-  }).then(function(Response) {
+  }).then(function(response) {
     for (var i = 0; i < limit; i++) {
       var savegif = $("<button>");
       savegif.text("favorite").addClass("savebtn");
       var toonDiv = $("<div>");
       toonDiv.addClass("gifholder");
 
-      var rating = Response.data[i].rating;
+      var rating = response.data[i].rating;
       var ratingp = $("<div class ='toonrating'>").text("Rating: " + rating);
       toonDiv.append(ratingp);
-      var gifurl = Response.data[i].images.fixed_width.url;
-      var stillurl = Response.data[i].images.fixed_width_still.url;
+      var gifurl = response.data[i].images.fixed_width.url;
+      var stillurl = response.data[i].images.fixed_width_still.url;
       //   console.log(gifurl);
       var gifconatiner = $("<img>");
       gifconatiner
@@ -40,11 +49,12 @@ function RenderGifs() {
         .attr("src", gifurl);
 
       toonDiv.prepend(gifconatiner);
-      toonDiv.append(savegif);
+      // toonDiv.append(savegif);
       $("#gifs").prepend(toonDiv);
+      // console.log("restponse1", response);
     }
 
-    console.log(Response);
+    // console.log("restponse2", response);
   });
 }
 
@@ -62,13 +72,11 @@ function MakeButtons() {
   }
 }
 function togglepause() {
-  console.log("toggle Pause");
-  console.log(this);
+  // console.log("toggle Pause");
+  // console.log(this);
 
   var state = $(this).attr("data-state");
-  // If the clicked image's state is still, update its src attribute to what its data-animate value is.
-  // Then, set the image's data-state to animate
-  // Else set src to the data-still value
+  // If the clicked image's state is still, update its src attribute to what its data-animate value is.Then, set the image's data-state to animate Else set src to the data-still value
   if (state === "still") {
     $(this).attr("src", $(this).attr("data-animate-url"));
     $(this).attr("data-state", "animate");
@@ -80,9 +88,7 @@ function togglepause() {
 
 $("#add-toon").on("click", function(event) {
   event.preventDefault();
-  var toontoadd = $("#toon-input")
-    .val()
-    .trim();
+  var toontoadd = $("#toon-input").val();
   console.log(toontoadd);
   if (toontoadd != "") {
     toonbuttons.push(toontoadd);
@@ -90,10 +96,6 @@ $("#add-toon").on("click", function(event) {
     MakeButtons();
   }
 });
-
-function addtoFavorites(){
-
-}
 
 MakeButtons();
 
